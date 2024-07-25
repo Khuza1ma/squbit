@@ -17,4 +17,4 @@ This Flutter project serves as a practical playground for exploring Cubit state 
 
 2. **Clone the Repository:**
    ```bash
-   git clone [https://github.com/](https://github.com/)<your-username>/vubit-sqflite-practice.git
+   git clone https://github.com/Khuza1ma/squbit.git
