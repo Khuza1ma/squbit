@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:squbit/home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -9,12 +10,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Squbit',
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: Container(),
-      ),
-    );
+    return const MaterialApp(
+        title: 'Squbit', debugShowCheckedModeBanner: false, home: HomeView());
   }
 }
