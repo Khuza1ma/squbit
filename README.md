@@ -7,7 +7,7 @@ This Flutter project serves as a practical playground for exploring Cubit state 
 
 * **Cubit State Management:** Leverages Cubit for efficient state management, ensuring a clean separation of concerns and simplified state handling.
 * **Sqflite Database Integration:** Employs Sqflite, a lightweight and robust database library, to store and retrieve data persistently within the app.
-* **Practice-Oriented Structure:** Designed with the goal of providing a hands-on learning experience for Cubit and Sqflite. Feel free to modify, expand, and experiment with the code to solidify your understanding.
+* **Practice-Oriented Structure:** Designed with the goal of doing a hands-on learning experience for Cubit and Sqflite.
 
 **Getting Started:**
 
