@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:squbit/home.dart';
+
+import 'package:squbit/presentation/screens/home.dart';
+import 'package:squbit/cubit/home/home_cubit.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,10 +13,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       title: 'Squbit',
       debugShowCheckedModeBanner: false,
-      home: HomeView(),
+      home: MultiBlocProvider(
+        providers: [
+          BlocProvider<HomeCubit>(
+            create: (context) => HomeCubit(),
+          )
+        ],
+        child: const HomeView(),
+      ),
     );
   }
 }
