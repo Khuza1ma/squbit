@@ -1,28 +1,52 @@
+import 'package:animated_splash_screen/animated_splash_screen.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-
-import 'package:squbit/presentation/screens/home.dart';
-import 'package:squbit/cubit/home/home_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:page_transition/page_transition.dart';
+import 'package:squbit/shared/styles/themes.dart';
+import 'package:squbit/views/home_screen.dart';
 
-void main() {
-  runApp(const MyApp());
+import 'controller/cubit/cubit.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
+
+  runApp(EasyLocalization(
+      path: 'assets/translations',
+      supportedLocales: const [Locale('en', 'US'), Locale('ar', 'EG')],
+      fallbackLocale: const Locale('en', 'US'),
+      child: const MyApp()));
 }
+
+// Localization
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Squbit',
-      debugShowCheckedModeBanner: false,
-      home: MultiBlocProvider(
-        providers: [
-          BlocProvider<HomeCubit>(
-            create: (context) => HomeCubit(),
-          )
-        ],
-        child: const HomeView(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => TodoCubit()..createDatabase()),
+      ],
+      child: MaterialApp(
+        localizationsDelegates: context.localizationDelegates,
+        supportedLocales: context.supportedLocales,
+        locale: context.locale,
+        title: 'Flutter Demo',
+        theme: lightTheme,
+        darkTheme: darkTheme,
+        themeMode: ThemeMode.light,
+        home: AnimatedSplashScreen(
+          splash: Image.asset('assets/images/todo_app.jpg', fit: BoxFit.cover),
+          nextScreen: const HomeScreen(),
+          splashIconSize: double.infinity,
+          splashTransition: SplashTransition.fadeTransition,
+          pageTransitionType: PageTransitionType.fade,
+          backgroundColor: Colors.transparent,
+          duration: 1000,
+        ),
       ),
     );
   }
