@@ -17,6 +17,7 @@ class UpdateTaskScreen extends StatefulWidget {
     required this.time,
     required this.des,
   });
+
   final String title;
   final String date;
   final String time;
@@ -36,6 +37,7 @@ class _UpdateTaskScreenState extends State<UpdateTaskScreen> {
   final desController = TextEditingController();
 
   final _formKey = GlobalKey<FormState>();
+
   @override
   void initState() {
     titleController.text = widget.title;
@@ -159,11 +161,12 @@ class _UpdateTaskScreenState extends State<UpdateTaskScreen> {
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
                           cubit.updateDataIntoDatabase(
-                              title: titleController.text,
-                              date: dateController.text,
-                              time: timeController.text,
-                              description: desController.text,
-                              id: widget.id);
+                            title: titleController.text,
+                            date: dateController.text,
+                            time: timeController.text,
+                            description: desController.text,
+                            id: widget.id,
+                          );
                         }
                       },
                       child: Text('Update Task'.tr()),

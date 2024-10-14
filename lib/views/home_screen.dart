@@ -114,10 +114,14 @@ class HomeScreen extends StatelessWidget {
           ),
           floatingActionButton: FloatingActionButton(
             onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (BuildContext context) {
-                return AddTaskScreen();
-              }));
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (BuildContext context) {
+                    return AddTaskScreen();
+                  },
+                ),
+              );
             },
             // We finished now our Localization now ... thank you...
             child: const Icon(Icons.add),
