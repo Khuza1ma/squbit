@@ -155,7 +155,8 @@ class _UpdateTaskScreenState extends State<UpdateTaskScreen> {
                     MaterialButton(
                       height: 40.0,
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(25.0)),
+                        borderRadius: BorderRadius.circular(25.0),
+                      ),
                       minWidth: double.infinity,
                       color: Colors.teal,
                       onPressed: () {

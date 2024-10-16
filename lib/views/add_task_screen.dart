@@ -7,7 +7,7 @@ import '../controller/cubit/states.dart';
 import '../shared/componant.dart';
 
 class AddTaskScreen extends StatelessWidget {
-  AddTaskScreen({Key? key}) : super(key: key);
+  AddTaskScreen({super.key});
 
   final titleController = TextEditingController();
   final timeController = TextEditingController();
