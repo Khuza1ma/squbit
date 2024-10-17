@@ -132,14 +132,14 @@ class TodoCubit extends Cubit<TodoStates> {
 
   void changeLanguageToArabic(BuildContext context) {
     if (EasyLocalization.of(context)!.locale == const Locale('en', 'US')) {
-      context.locale = const Locale('ar', 'EG');
+      context.setLocale(const Locale('ar', 'EG'));
     }
     emit(ChangeLanguageToArabicState());
   }
 
   void changeLanguageToEnglish(BuildContext context) {
     if (EasyLocalization.of(context)!.locale == const Locale('ar', 'EG')) {
-      context.locale = const Locale('en', 'US');
+      context.setLocale(const Locale('en', 'US'));
     }
     emit(ChangeLanguageToEnglishState());
   }

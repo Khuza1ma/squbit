@@ -12,11 +12,14 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
 
-  runApp(EasyLocalization(
+  runApp(
+    EasyLocalization(
       path: 'assets/translations',
       supportedLocales: const [Locale('en', 'US'), Locale('ar', 'EG')],
       fallbackLocale: const Locale('en', 'US'),
-      child: const MyApp()));
+      child: const MyApp(),
+    ),
+  );
 }
 
 // Localization
