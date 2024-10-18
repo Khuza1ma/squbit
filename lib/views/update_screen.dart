@@ -1,9 +1,8 @@
-// Do you know how to design this screen ...
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../controller/cubit/cubit.dart';
 import '../controller/cubit/states.dart';
+import '../controller/cubit/cubit.dart';
+import 'package:flutter/material.dart';
 import '../shared/componant.dart';
 
 class UpdateTaskScreen extends StatefulWidget {
@@ -84,55 +83,66 @@ class _UpdateTaskScreenState extends State<UpdateTaskScreen> {
                       height: 10.0,
                     ),
                     CustomTextFormField(
-                        controller: timeController,
-                        keyboardType: TextInputType.datetime,
-                        validator: (String? value) {
-                          if (value!.isEmpty) {
-                            return 'Please add your Time'.tr();
-                          }
-                          return null;
-                        },
-                        label: 'Time',
-                        hintText: 'Add your Time',
-                        prefixIcon: Icons.watch_later_outlined,
-                        onTap: () {
-                          showTimePicker(
-                                  context: context,
-                                  initialTime: TimeOfDay.now())
-                              .then((value) {
-                            timeController.text = value!.format(context);
-                          }).catchError((error) {
+                      controller: timeController,
+                      keyboardType: TextInputType.datetime,
+                      validator: (String? value) {
+                        if (value!.isEmpty) {
+                          return 'Please add your Time'.tr();
+                        }
+                        return null;
+                      },
+                      label: 'Time',
+                      hintText: 'Add your Time',
+                      prefixIcon: Icons.watch_later_outlined,
+                      onTap: () {
+                        showTimePicker(
+                                context: context, initialTime: TimeOfDay.now())
+                            .then(
+                          (value) {
+                            if (context.mounted) {
+                              timeController.text = value!.format(context);
+                            }
+                          },
+                        ).catchError(
+                          (error) {
                             timeController.clear();
-                          });
-                        }),
+                          },
+                        );
+                      },
+                    ),
                     const SizedBox(
                       height: 10.0,
                     ),
                     CustomTextFormField(
-                        controller: dateController,
-                        keyboardType: TextInputType.datetime,
-                        validator: (String? value) {
-                          if (value!.isEmpty) {
-                            return 'Please add your Date'.tr();
-                          }
-                          return null;
-                        },
-                        label: 'Date',
-                        hintText: 'Add your Date',
-                        prefixIcon: Icons.calendar_view_day,
-                        onTap: () {
-                          showDatePicker(
-                                  context: context,
-                                  initialDate: DateTime.now(),
-                                  firstDate: DateTime.now(),
-                                  lastDate: DateTime.parse('2040-12-30'))
-                              .then((value) {
+                      controller: dateController,
+                      keyboardType: TextInputType.datetime,
+                      validator: (String? value) {
+                        if (value!.isEmpty) {
+                          return 'Please add your Date'.tr();
+                        }
+                        return null;
+                      },
+                      label: 'Date',
+                      hintText: 'Add your Date',
+                      prefixIcon: Icons.calendar_view_day,
+                      onTap: () {
+                        showDatePicker(
+                          context: context,
+                          initialDate: DateTime.now(),
+                          firstDate: DateTime.now(),
+                          lastDate: DateTime.parse('2040-12-30'),
+                        ).then(
+                          (value) {
                             dateController.text =
                                 DateFormat.yMMMd().format(value!);
-                          }).catchError((error) {
+                          },
+                        ).catchError(
+                          (error) {
                             dateController.clear();
-                          });
-                        }),
+                          },
+                        );
+                      },
+                    ),
                     const SizedBox(
                       height: 10.0,
                     ),
