@@ -67,7 +67,7 @@ class _UpdateTaskScreenState extends State<UpdateTaskScreen> {
                 padding: const EdgeInsets.all(8.0),
                 child: Column(
                   children: [
-                    CustomTextFormField(
+                    customTextFormField(
                         controller: titleController,
                         keyboardType: TextInputType.text,
                         validator: (String? value) {
@@ -82,7 +82,7 @@ class _UpdateTaskScreenState extends State<UpdateTaskScreen> {
                     const SizedBox(
                       height: 10.0,
                     ),
-                    CustomTextFormField(
+                    customTextFormField(
                       controller: timeController,
                       keyboardType: TextInputType.datetime,
                       validator: (String? value) {
@@ -113,7 +113,7 @@ class _UpdateTaskScreenState extends State<UpdateTaskScreen> {
                     const SizedBox(
                       height: 10.0,
                     ),
-                    CustomTextFormField(
+                    customTextFormField(
                       controller: dateController,
                       keyboardType: TextInputType.datetime,
                       validator: (String? value) {
@@ -146,7 +146,7 @@ class _UpdateTaskScreenState extends State<UpdateTaskScreen> {
                     const SizedBox(
                       height: 10.0,
                     ),
-                    CustomTextFormField(
+                    customTextFormField(
                         controller: desController,
                         lines: 5,
                         keyboardType: TextInputType.text,

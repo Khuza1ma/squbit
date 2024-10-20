@@ -1,7 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
-Widget CustomTextFormField({
+Widget customTextFormField({
   required TextEditingController? controller,
   ValueChanged<String>? submit,
   required TextInputType? keyboardType,
@@ -26,11 +26,16 @@ Widget CustomTextFormField({
         prefixIcon: Icon(prefixIcon),
         hintText: hintText.tr(),
         isDense: true,
-        enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(5.0)),
+        enabledBorder:
+            OutlineInputBorder(borderRadius: BorderRadius.circular(5.0)),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(5.0)),
-        disabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(5.0)),
-        errorBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(5.0)),
-        focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(5.0)),
-        focusedErrorBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(5.0)),
+        disabledBorder:
+            OutlineInputBorder(borderRadius: BorderRadius.circular(5.0)),
+        errorBorder:
+            OutlineInputBorder(borderRadius: BorderRadius.circular(5.0)),
+        focusedBorder:
+            OutlineInputBorder(borderRadius: BorderRadius.circular(5.0)),
+        focusedErrorBorder:
+            OutlineInputBorder(borderRadius: BorderRadius.circular(5.0)),
       ),
     );

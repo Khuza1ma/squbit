@@ -36,7 +36,7 @@ class AddTaskScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: Column(
                   children: [
-                    CustomTextFormField(
+                    customTextFormField(
                         controller: titleController,
                         keyboardType: TextInputType.text,
                         validator: (String? value) {
@@ -51,7 +51,7 @@ class AddTaskScreen extends StatelessWidget {
                     const SizedBox(
                       height: 10.0,
                     ),
-                    CustomTextFormField(
+                    customTextFormField(
                         controller: timeController,
                         keyboardType: TextInputType.datetime,
                         validator: (String? value) {
@@ -76,7 +76,7 @@ class AddTaskScreen extends StatelessWidget {
                     const SizedBox(
                       height: 10.0,
                     ),
-                    CustomTextFormField(
+                    customTextFormField(
                         controller: dateController,
                         keyboardType: TextInputType.datetime,
                         validator: (String? value) {
@@ -104,7 +104,7 @@ class AddTaskScreen extends StatelessWidget {
                     const SizedBox(
                       height: 10.0,
                     ),
-                    CustomTextFormField(
+                    customTextFormField(
                         controller: desController,
                         lines: 5,
                         keyboardType: TextInputType.text,
