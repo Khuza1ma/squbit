@@ -68,7 +68,9 @@ class AddTaskScreen extends StatelessWidget {
                                   context: context,
                                   initialTime: TimeOfDay.now())
                               .then((value) {
-                            timeController.text = value!.format(context);
+                            if (context.mounted) {
+                              timeController.text = value!.format(context);
+                            }
                           }).catchError((error) {
                             timeController.clear();
                           });
